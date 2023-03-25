@@ -1,0 +1,9 @@
+services:
+    enginiro.asset.version_strategy:
+        class: Enginiro\AssetBundle\VersionStrategy\HashVersionStrategy
+        tags:
+            - { name: monolog.logger, channel: enginiro }
+        arguments:
+            - ~
+
+    Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface: '@enginiro.asset.version_strategy'

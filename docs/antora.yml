@@ -1,0 +1,6 @@
+name: asset-bundle
+title: Asset Bundle
+version: ~
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc

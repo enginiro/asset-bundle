@@ -1,0 +1,68 @@
+= Asset Bundle
+Jakub Jabůrek <jaburek.jakub@gmail.com>
+
+The Asset Bundle provides implementation of a https://symfony.com/doc/4.4/components/asset.html#versioned-assets[version strategy]
+that accepts a JSON manifest file.
+
+== Usage
+
+For basic use cases, only requiring this bundle in your `composer.json` is
+necessary. It already declares `symfony/asset` as a dependency.
+
+The bundle automatically registers its version strategy in Symfony’s Asset
+Bundle configuration. Make sure you don’t set the
+`framework.assets.version_strategy` configuration option, because it would
+override configuration set by this bundle.
+
+Optionally, you can customize the manifest file location, see the Configuration
+section below.
+
+== Configuration
+
+You can configure the manifest file path using the `manifest_path` key as
+follows:
+
+.`config/packages/enginiro_asset.yml`
+[source,yaml]
+----
+enginiro_asset:
+    manifest_path: '%kernel.project_dir%/var/dat/asset-hashes.json'
+----
+
+The default value is shown in the snippet above.
+
+== Manifest file format
+
+The manifest file must be a JSON object. Keys are asset paths and values their
+hash. Paths must not be prefixed with a slash.
+
+.Example
+[source,json]
+----
+{
+	"assets/css/stylesheet.css": "abcd12345",
+	"assets/js/script.js": "defg67890"
+}
+----
+
+[TIP]
+====
+You can use https://www.npmjs.com/package/gulp-buster[`gulp-buster`] to
+generate the manifest. For example:
+
+[source,javascript]
+----
+const gulpBuster = require('gulp-buster');
+
+function buster() {
+	return gulp.src('public/assets/**/*')
+	           .pipe(gulpBuster({
+	           	fileName: 'asset-hashes.json',
+	           	relativePath: 'public'
+	           }))
+	           .pipe(gulp.dest('var/dat'));
+});
+
+exports.buster = buster;
+----
+====

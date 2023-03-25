@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+		configVersion="3"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns="https://www.phpdoc.org"
+		xsi:noNamespaceSchemaLocation="https://docs.phpdoc.org/latest/phpdoc.xsd">
+	<title>Asset Bundle</title>
+	<paths>
+		<output>docs/api</output>
+	</paths>
+	<version number="latest">
+		<api>
+			<source dsn=".">
+				<path>src</path>
+			</source>
+			<ignore>
+				<path>src/DependencyInjection/Configuration.php</path>
+				<path>src/DependencyInjection/EnginiroAssetExtension.php</path>
+				<path>src/EnginiroAssetBundle.php</path>
+			</ignore>
+			<default-package-name>AssetBundle</default-package-name>
+		</api>
+	</version>
+</phpdocumentor>

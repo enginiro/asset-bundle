@@ -1,0 +1,11 @@
+/vendor
+/.phive
+/tools
+
+/.phpdoc
+/docs/api
+
+/*.cache
+
+/*.sublime-project
+/*.sublime-workspace

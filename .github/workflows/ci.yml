@@ -1,0 +1,26 @@
+name: CI
+on:
+  - push
+jobs:
+  codestyle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer, phive
+      - run: composer install
+      - run: phive --no-progress install --trust-gpg-keys E82B2FB314E9906E php-cs-fixer@^3.15
+      - run: ./tools/php-cs-fixer fix --show-progress=none --allow-risky=yes --dry-run --diff
+  psalm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer, phive
+      - run: composer install
+      - run: phive --no-progress install --trust-gpg-keys 12CE0F1D262429A5 psalm@^5.8
+      - run: ./tools/psalm --no-progress

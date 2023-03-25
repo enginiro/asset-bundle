@@ -1,0 +1,30 @@
+= Asset Bundle
+
+The Asset Bundle of the Enginiro project provides implementation of a
+https://symfony.com/doc/4.4/components/asset.html#versioned-assets[version strategy]
+that accepts a JSON manifest file.
+
+== Usage
+
+To use this bundle, require it in your `composer.json` file. By default, the
+version strategy will look for the manifest file in
+`var/dat/asset-hashes.json`. This can be customized by setting the
+`enginiro_asset.manifest_path` configuration option.
+
+== Manifest
+
+The manifest file must be a JSON object, where keys are asset paths and values
+their hash. Paths must not begin with a slash.
+
+For example:
+
+[source,json]
+----
+{
+	"assets/css/stylesheet.css": "abcd12345",
+	"assets/js/script.js": "defg67890"
+}
+----
+
+This format works well with the
+https://www.npmjs.com/package/gulp-buster[`gulp-buster`] package.

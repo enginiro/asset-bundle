@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<psalm
+	errorLevel="1"
+	resolveFromConfigFile="true"
+	ignoreInternalFunctionFalseReturn="false"
+	ignoreInternalFunctionNullReturn="false"
+	findUnusedCode="true"
+	findUnusedPsalmSuppress="true"
+	ensureArrayIntOffsetsExist="true"
+	sealAllMethods="true"
+	sealAllProperties="true"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://getpsalm.org/schema/config"
+	xsi:schemaLocation="https://getpsalm.org/schema/config">
+	<projectFiles>
+		<directory name="src" />
+		<ignoreFiles>
+			<directory name="src/DependencyInjection" />
+			<file name="src/EnginiroAssetBundle.php" />
+		</ignoreFiles>
+	</projectFiles>
+	<issueHandlers>
+		<UnusedClass>
+			<errorLevel type="suppress">
+				<file name="src/VersionStrategy/HashVersionStrategy.php" />
+			</errorLevel>
+		</UnusedClass>
+	</issueHandlers>
+</psalm>

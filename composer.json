@@ -1,0 +1,44 @@
+{
+	"name": "enginiro/asset-bundle",
+	"description": "Symfony bundle providing a hash asset version strategy.",
+	"type": "symfony-bundle",
+	"license": "proprietary",
+	"homepage": "https://github.com/enginiro/asset-bundle",
+	"authors": [
+		{
+			"name": "Jakub Jabůrek",
+			"email": "jaburek.jakub@gmail.com"
+		}
+	],
+	"config": {
+		"platform": {
+			"php": "7.4.33"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Enginiro\\AssetBundle\\": "src/"
+		}
+	},
+	"minimum-stability": "stable",
+	"require": {
+		"php": "^7.4",
+		"symfony/config": "^4.4",
+		"symfony/dependency-injection": "^4.4",
+		"symfony/http-kernel": "^4.4",
+		"symfony/asset": "^4.4",
+		"symfony/monolog-bundle": "^3.1"
+	},
+	"require-dev": {
+		"enginiro/php-cs-fixer-config": "dev-main@dev"
+	},
+	"scripts": {
+		"phive-install": "phive install phpDocumentor@^3.3 psalm@^5.8 php-cs-fixer@^3.15"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/enginiro/php-cs-fixer-config"
+		}
+	]
+}
