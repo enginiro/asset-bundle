@@ -67,15 +67,7 @@ final class HashVersionStrategy implements VersionStrategyInterface, LoggerAware
 	/**
 	 * @inheritdoc
 	 */
-	public function getVersion($path) {
-		/** @psalm-suppress DocblockTypeContradiction */
-		if (!is_string($path)) {
-			throw new InvalidArgumentException(sprintf(
-				'Argument $path expected to be a string, %s given.',
-				gettype($path)
-			));
-		}
-
+	public function getVersion(string $path) {
 		if (strlen($path) >= 2 && $path[0] === '/') {
 			/** @var string $path */
 			$path = substr($path, 1);
@@ -87,7 +79,7 @@ final class HashVersionStrategy implements VersionStrategyInterface, LoggerAware
 	/**
 	 * @inheritdoc
 	 */
-	public function applyVersion($path) {
+	public function applyVersion(string $path) {
 		$version = $this->getVersion($path);
 
 		if ($version === '') {
