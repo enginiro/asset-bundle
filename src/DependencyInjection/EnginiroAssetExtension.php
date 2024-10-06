@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Enginiro\AssetBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -19,7 +20,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 class EnginiroAssetExtension extends ConfigurableExtension implements PrependExtensionInterface {
 	private const MANIFEST_PATH = '%s/var/dat/asset-hashes.json';
 
-	public function getConfiguration(array $config, ContainerBuilder $container) {
+	public function getConfiguration(array $config, ContainerBuilder $container): ?ConfigurationInterface {
 		$defaultManifestPath = sprintf(self::MANIFEST_PATH, $container->getParameter('kernel.project_dir'));
 
 		return new Configuration($defaultManifestPath);

@@ -51,7 +51,7 @@ final class HashVersionStrategy implements VersionStrategyInterface, LoggerAware
 	/**
 	 * @required
 	 */
-	public function setLogger(LoggerInterface $logger) {
+	public function setLogger(LoggerInterface $logger): void {
 		$this->logger = $logger;
 	}
 
@@ -67,7 +67,7 @@ final class HashVersionStrategy implements VersionStrategyInterface, LoggerAware
 	/**
 	 * @inheritdoc
 	 */
-	public function getVersion(string $path) {
+	public function getVersion(string $path): string {
 		if (strlen($path) >= 2 && $path[0] === '/') {
 			/** @var string $path */
 			$path = substr($path, 1);
@@ -79,7 +79,7 @@ final class HashVersionStrategy implements VersionStrategyInterface, LoggerAware
 	/**
 	 * @inheritdoc
 	 */
-	public function applyVersion(string $path) {
+	public function applyVersion(string $path): string {
 		$version = $this->getVersion($path);
 
 		if ($version === '') {

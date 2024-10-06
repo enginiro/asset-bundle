@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface {
 		$this->defaultManifestPath = $defaultManifestPath;
 	}
 
-	public function getConfigTreeBuilder() {
+	public function getConfigTreeBuilder(): TreeBuilder {
 		$treeBuilder = new TreeBuilder('enginiro_asset');
 
 		$treeBuilder->getRootNode()
