@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Enginiro\AssetBundle\VersionStrategy;
 
-use InvalidArgumentException;
 use JsonException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -69,7 +68,6 @@ final class HashVersionStrategy implements VersionStrategyInterface, LoggerAware
 	 */
 	public function getVersion(string $path): string {
 		if (strlen($path) >= 2 && $path[0] === '/') {
-			/** @var string $path */
 			$path = substr($path, 1);
 		}
 
