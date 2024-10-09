@@ -12,7 +12,7 @@
 	],
 	"config": {
 		"platform": {
-			"php": "8.1.30"
+			"php": "8.2.16"
 		}
 	},
 	"autoload": {
@@ -22,11 +22,11 @@
 	},
 	"minimum-stability": "stable",
 	"require": {
-		"php": "^8.1",
-		"symfony/config": "^6.4",
-		"symfony/dependency-injection": "^6.4",
-		"symfony/http-kernel": "^6.4",
-		"symfony/asset": "^6.4",
+		"php": "^8.2",
+		"symfony/config": "^7.1",
+		"symfony/dependency-injection": "^7.1",
+		"symfony/http-kernel": "^7.1",
+		"symfony/asset": "^7.1",
 		"psr/log": "^2|^3"
 	},
 	"require-dev": {

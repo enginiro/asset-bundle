@@ -5,10 +5,10 @@ jobs:
   codestyle:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           tools: composer, phive
       - run: composer install
       - run: phive --no-progress install --trust-gpg-keys E82B2FB314E9906E php-cs-fixer@^3.15
@@ -16,10 +16,10 @@ jobs:
   psalm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           tools: composer, phive
       - run: composer install
       - run: phive --no-progress install --trust-gpg-keys 12CE0F1D262429A5 psalm@^5.8
