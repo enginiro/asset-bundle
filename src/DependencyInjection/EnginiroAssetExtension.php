@@ -26,7 +26,7 @@ class EnginiroAssetExtension extends ConfigurableExtension implements PrependExt
 		return new Configuration($defaultManifestPath);
 	}
 
-	protected function loadInternal(array $config, ContainerBuilder $container) {
+	protected function loadInternal(array $config, ContainerBuilder $container): void {
 		$loader = new YamlFileLoader(
 			$container,
 			new FileLocator(__DIR__.'/../../config')
@@ -38,7 +38,7 @@ class EnginiroAssetExtension extends ConfigurableExtension implements PrependExt
 		$definition->replaceArgument(0, $config['manifest_path']);
 	}
 
-	public function prepend(ContainerBuilder $container) {
+	public function prepend(ContainerBuilder $container): void {
 		$config = [
 			'assets' => [
 				'version_strategy' => 'enginiro.asset.version_strategy'
